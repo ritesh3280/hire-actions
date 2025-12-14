@@ -1,0 +1,4 @@
+Test Candidate
+React, TypeScript, Next.js, FastAPI, MongoDB.
+Built real time systems
+EOF

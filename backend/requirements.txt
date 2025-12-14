@@ -1,0 +1,17 @@
+# Web Framework
+fastapi, uvicorn, python-multipart
+
+# Database  
+motor, pymongo
+
+# Configuration
+pydantic, pydantic-settings, python-dotenv
+
+# AI/ML
+openai, sentence-transformers, numpy
+
+# PDF Parsing
+PyPDF2
+
+# HTTP Client
+httpx
