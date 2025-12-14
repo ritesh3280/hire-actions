@@ -139,7 +139,7 @@ Frontend renders ExecutionResult with candidate cards / scores / emails
 - **AI:** OpenAI GPT-4o-mini for intent parsing, SentenceTransformers for embeddings
 - **Voice:** OpenAI Whisper
 
-## 🔧 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
