@@ -93,7 +93,7 @@ When scoring without specifying a job, the system automatically uses the most re
 ## 🧪 Sample Data
 
 The shared MongoDB instance includes:
-- **5 sample candidates** with real resume data
+- **17 sample candidates** with resume data
 - **3 job postings** for testing
 - Ready-to-use for immediate testing
 
