@@ -34,6 +34,9 @@ Open **http://localhost:3000** and click the mic button.
 
 ## Why I Built This
 
+Building on HireFlow: This project extends my previous work on HireFlow (Best Use of Terraform @ HoyaHacks), which automated resume screening and AI-powered phone interviews. That version focused on candidate-facing automation—AI calling candidates to screen them. HireActions flips the perspective: it's recruiter-facing, letting hiring managers control the entire pipeline through voice. Same domain, opposite user, complementary products.
+HireFlow - https://devpost.com/software/hireflow
+
 **The Problem**: Recruiting workflows are fragmented, clicking through tabs, filling forms, copy-pasting between tools. Voice is underutilized despite being our most natural interface.
 
 **The Insight**: Recruiting has a constrained action space (search, score, move, email) with high semantic complexity (job requirements, candidate qualifications). This is the perfect domain for voice + LLM: natural language handles the complexity while a finite set of actions keeps execution reliable.
