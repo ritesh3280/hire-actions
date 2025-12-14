@@ -1,90 +1,106 @@
 #!/bin/bash
 # HireFlow Setup Script
-# =====================
-
-set -e
-
-# Colors
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-RED='\033[0;31m'
-NC='\033[0m'
 
 echo ""
-echo -e "${BLUE}🎙️  HireFlow Setup${NC}"
+echo "🎙️  HireFlow Setup"
 echo "===================="
 echo ""
 
-# Check prerequisites
-echo -e "${YELLOW}Checking prerequisites...${NC}"
+# Check for required tools
+echo "Checking prerequisites..."
 
-command -v python3 >/dev/null 2>&1 || { echo -e "${RED}❌ Python 3 required${NC}"; exit 1; }
-command -v node >/dev/null 2>&1 || { echo -e "${RED}❌ Node.js required${NC}"; exit 1; }
+if ! command -v python3 &> /dev/null; then
+    echo "❌ Python 3 is required. Install from https://python.org/"
+    exit 1
+fi
 
-echo -e "   Python: ${GREEN}✓${NC}"
-echo -e "   Node.js: ${GREEN}✓${NC}"
+if ! command -v node &> /dev/null; then
+    echo "❌ Node.js is required. Install from https://nodejs.org/"
+    exit 1
+fi
+
+echo "   ✓ Python $(python3 --version | cut -d' ' -f2)"
+echo "   ✓ Node $(node -v)"
 echo ""
 
-# Check .env
+# Get the script directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+# Check for .env
 if [ ! -f ".env" ]; then
-    echo -e "${YELLOW}📝 Creating .env from .env.example...${NC}"
+    echo "📝 Creating .env from .env.example..."
     cp .env.example .env
     echo ""
-    echo -e "${RED}⚠️  IMPORTANT: Edit .env and add your OpenAI API key!${NC}"
+    echo "⚠️  IMPORTANT: Edit .env and add your OpenAI API key!"
+    echo "   nano .env"
     echo ""
-    read -p "Press Enter after updating .env..."
+    read -p "Press Enter after updating .env (or Ctrl+C to exit)..."
     echo ""
 fi
 
 # Setup Backend
-echo -e "${BLUE}🐍 Setting up backend...${NC}"
-cd backend
-python3 -m venv venv 2>/dev/null || true
+echo "🐍 Setting up backend..."
+cd "$SCRIPT_DIR/backend"
+
+if [ ! -d "venv" ]; then
+    python3 -m venv venv
+fi
+
 source venv/bin/activate
-pip install -r requirements.txt --quiet
-echo -e "   ${GREEN}✓${NC} Backend ready"
-cd ..
+pip install -r requirements.txt -q
+echo "   ✓ Backend dependencies installed"
+
+cd "$SCRIPT_DIR"
 
 # Setup Frontend
-echo -e "${BLUE}📦 Setting up frontend...${NC}"
-cd frontend
-npm install --silent 2>/dev/null
-echo -e "   ${GREEN}✓${NC} Frontend ready"
-cd ..
+echo "📦 Setting up frontend..."
+cd "$SCRIPT_DIR/frontend"
+npm install --silent
+echo "   ✓ Frontend dependencies installed"
 
+cd "$SCRIPT_DIR"
 echo ""
-echo -e "${BLUE}🚀 Starting servers...${NC}"
+echo "🚀 Starting servers..."
 echo ""
 
 # Start backend
-cd backend
+cd "$SCRIPT_DIR/backend"
 source venv/bin/activate
-uvicorn main:app --reload --port 8000 2>&1 &
+uvicorn main:app --host 0.0.0.0 --port 8000 &
 BACKEND_PID=$!
-cd ..
 
-sleep 2
+# Wait for backend to start
+sleep 3
 
 # Start frontend
-cd frontend
-npm run dev 2>&1 &
+cd "$SCRIPT_DIR/frontend"
+npm run dev &
 FRONTEND_PID=$!
-cd ..
 
+# Wait a bit for frontend
 sleep 3
 
 echo ""
-echo -e "${GREEN}=========================================="
+echo "=========================================="
 echo "✅ HireFlow is running!"
-echo "==========================================${NC}"
+echo "=========================================="
 echo ""
-echo -e "🌐 Open: ${BLUE}http://localhost:3000${NC}"
+echo "🌐 Open: http://localhost:3000"
 echo ""
-echo -e "${YELLOW}Press Ctrl+C to stop${NC}"
+echo "Press Ctrl+C to stop"
 echo ""
 
-# Cleanup
-trap "kill $BACKEND_PID $FRONTEND_PID 2>/dev/null; exit" INT TERM
+# Handle shutdown
+cleanup() {
+    echo ""
+    echo "Shutting down..."
+    kill $BACKEND_PID 2>/dev/null
+    kill $FRONTEND_PID 2>/dev/null
+    exit 0
+}
 
-wait
+trap cleanup INT TERM
+
+# Keep running
+wait $BACKEND_PID $FRONTEND_PID
