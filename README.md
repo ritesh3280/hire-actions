@@ -48,8 +48,7 @@ Open **http://localhost:3000** 🎉
 - **Backend:** FastAPI, Python 3.11, Pydantic
 - **Database:** MongoDB Atlas (cloud-hosted)
 - **AI:** OpenAI GPT-4o-mini for intent parsing, SentenceTransformers for embeddings
-- **Voice:** Web Speech API
-
+- **Voice:** OpenAI Whisper
 
 ## 🔧 API Endpoints
 
