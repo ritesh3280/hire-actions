@@ -1,6 +1,6 @@
 # HireActions - Voice-Powered Recruiting
-##rthippar@umd.edu
-##Ritesh Thipparthi
+## rthippar@umd.edu
+## Ritesh Thipparthi
 
 A voice-first recruiting assistant that lets you manage candidates and jobs using natural language. Say "Find React developers with 3 years experience" and instantly get ranked results. No clicking, no forms, just speak.
 
