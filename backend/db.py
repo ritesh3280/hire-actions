@@ -1,6 +1,7 @@
 from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase
 from pymongo import ASCENDING, ReturnDocument
 from config import get_settings
+import certifi
 
 _settings = get_settings()
 _client: AsyncIOMotorClient | None = None
@@ -10,7 +11,11 @@ _db: AsyncIOMotorDatabase | None = None
 async def get_db() -> AsyncIOMotorDatabase:
     global _client, _db
     if _db is None:
-        _client = AsyncIOMotorClient(_settings.mongo_uri)
+        # Use certifi for SSL certificates (fixes macOS SSL issues)
+        _client = AsyncIOMotorClient(
+            _settings.mongo_uri,
+            tlsCAFile=certifi.where()
+        )
         _db = _client[_settings.mongo_db]
         await _ensure_indexes(_db)
     return _db

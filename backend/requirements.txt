@@ -1,17 +1,31 @@
+# HireFlow Backend Dependencies
+# ==============================
+
 # Web Framework
-fastapi, uvicorn, python-multipart
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+python-multipart==0.0.9
 
-# Database  
-motor, pymongo
+# Database
+motor==3.6.0
+pymongo[srv]==4.9.2
+dnspython==2.8.0
 
-# Configuration
-pydantic, pydantic-settings, python-dotenv
+# Configuration & Validation
+pydantic[email]==2.12.5
+pydantic-settings==2.3.4
+python-dotenv==1.0.1
 
 # AI/ML
-openai, sentence-transformers, numpy
+openai==1.35.7
+sentence-transformers==3.0.1
+numpy==1.26.4
 
 # PDF Parsing
-PyPDF2
+PyPDF2==3.0.1
 
-# HTTP Client
-httpx
+# HTTP Client (required by openai)
+httpx==0.27.0
+
+# SSL Certificates (required for macOS)
+certifi==2024.8.30
