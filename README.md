@@ -14,8 +14,6 @@ A voice-first recruiting assistant that lets you manage candidates and jobs usin
 
 ## 🚀 Quick Start
 
-### Option 1: Docker (Recommended - Fastest)
-
 ```bash
 git clone https://github.com/ritesh3280/hire-actions
 cd hire-actions
@@ -24,20 +22,7 @@ cd hire-actions
 cp .env.example .env
 # Edit .env: OPENAI_API_KEY=sk-your-key-here
 
-# Run with Docker
-docker-compose up
-```
-
-Open **http://localhost:3000** 🎉
-
-### Option 2: Manual Setup
-
-```bash
-git clone https://github.com/ritesh3280/hire-actions
-cd hire-actions
-cp .env.example .env
-# Edit .env: OPENAI_API_KEY=sk-your-key-here
-
+# Run setup
 ./setup.sh
 ```
 
