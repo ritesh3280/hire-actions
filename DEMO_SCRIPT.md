@@ -1,22 +1,6 @@
-# HireFlow Voice Assistant Demo Script
+# HireActions Voice Demo
 
-## Overview
-This demo showcases HireFlow's voice-driven recruiting platform. The system enables recruiters to manage candidates, jobs, and the hiring pipeline entirely through voice commands with intelligent context awareness.
-
----
-
-## Prerequisites
-
-Before the demo:
-1. Have backend running: `uvicorn main:app --reload --port 8000`
-2. Have frontend running: `npm run dev`
-3. Pre-seed some test data (optional but recommended):
-   - Upload 3-5 candidate resumes
-   - Create 1-2 job postings
-
----
-
-## Demo Flow (Killer 6-Step Sequence)
+## Demo Flow
 
 ### Step 1: Create a New Job
 **Voice Command:**
@@ -142,8 +126,6 @@ Before the demo:
 
 ---
 
-## Demo Tips
-
 ### Conversation Memory Demonstrations
 Show how the system remembers context:
 - "Find React developers" → "Score the first one" → "Email them"
@@ -160,55 +142,3 @@ Highlight the transparency:
 - Every action shows reasoning
 - Helps recruiters understand AI decisions
 - Builds trust in automation
-
----
-
-## Backup Commands (If Demo Goes Off-Script)
-
-| Scenario | Command |
-|----------|---------|
-| List all jobs | "Show me all open jobs" |
-| Search by skill | "Find Python developers with 5 years experience" |
-| Filter pipeline | "Show high priority candidates" |
-| Reset context | Click "Clear" in the overlay |
-
----
-
-## Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| No audio feedback | Check browser audio permissions |
-| "Microphone not supported" | Use Chrome/Edge, not Safari |
-| Context not working | Check conversation history count in overlay |
-| Commands not recognized | Speak clearly, avoid background noise |
-
----
-
-## Key Selling Points
-
-1. **Voice-First UX**: Hands-free recruiting workflow
-2. **Context Memory**: Natural conversation flow with references
-3. **Explainable AI**: Every action shows reasoning
-4. **Audio Feedback**: Professional UX polish
-5. **Multi-Action Flow**: Complete hiring workflow in 6 commands
-
----
-
-## Sample Candidate Data for Demo
-
-For best results, upload candidates with these profiles:
-
-1. **Frontend Expert** (matches Senior Frontend role)
-   - Skills: React, TypeScript, Next.js, Tailwind
-   - Experience: 5+ years
-
-2. **Backend Developer** (contrast candidate)
-   - Skills: Python, FastAPI, PostgreSQL
-   - Experience: 4 years
-
-3. **Full Stack** (partial match)
-   - Skills: React, Node.js, MongoDB
-   - Experience: 3 years
-
-This creates variety in search results and scoring comparisons.
