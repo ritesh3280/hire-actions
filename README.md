@@ -126,7 +126,7 @@ Frontend renders ExecutionResult with candidate cards / scores / emails
 | `intent_parser.py` | LLM prompt + JSON schema enforcement for action parsing |
 | `executor.py` | Action dispatch + chained action resolution |
 | `embedding.py` | SentenceTransformers embeddings for semantic candidate search |
-| `FloatingMic.tsx` | OpenAI Whisper integration + real-time transcription display |
+| `FloatingMic.tsx` | OpenAI Whisper integration |
 | `ExecutionResult.tsx` | Renderer for different action results |
 
 ---
