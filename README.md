@@ -89,7 +89,7 @@ hire-actions/
 │   │   ├── intent_parser.py    # Voice → structured intent (LLM)
 │   │   ├── executor.py         # Intent → database actions
 │   │   ├── embedding.py        # Semantic search with SentenceTransformers
-│   │   └── llm_client.py       # OpenAI wrapper
+│   │   └── llm_client.py       # OpenAI
 │   └── models.py               # Pydantic schemas
 │
 ├── frontend/
@@ -97,7 +97,7 @@ hire-actions/
 │   │   ├── voice/
 │   │   │   └── FloatingMic.tsx # Recording + transcription
 │   │   ├── ExecutionResult.tsx # Renders action results
-│   │   └── PipelineView.tsx    # Kanban board
+│   │   └── PipelineView.tsx    # Pipeline View
 │   └── app/
 │       └── page.tsx            # Dashboard
 ```
