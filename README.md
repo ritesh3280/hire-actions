@@ -12,33 +12,36 @@ A voice-first recruiting assistant that lets you manage candidates and jobs usin
 - **📁 Bulk Upload** - Drag & drop multiple resumes at once
 - **🔗 Chained Actions** - "Find Python devs and move the top one to screening"
 
-## 🚀 Quick Start (2 minutes)
+## 🚀 Quick Start
 
-### 1. Clone & Setup
+### Option 1: Docker (Recommended - Fastest)
 
 ```bash
 git clone https://github.com/ritesh3280/hire-actions
+cd hire-actions
 
-# Copy environment file and add your OpenAI key
+# Add your OpenAI key
 cp .env.example .env
-# Edit .env and set: OPENAI_API_KEY=sk-your-key-here
+# Edit .env: OPENAI_API_KEY=sk-your-key-here
+
+# Run with Docker
+docker-compose up
 ```
 
-### 2. Run Setup Script
+Open **http://localhost:3000** 🎉
+
+### Option 2: Manual Setup
 
 ```bash
+git clone https://github.com/ritesh3280/hire-actions
+cd hire-actions
+cp .env.example .env
+# Edit .env: OPENAI_API_KEY=sk-your-key-here
+
 ./setup.sh
 ```
 
-This will:
-- ✅ Install Python dependencies
-- ✅ Install Node.js dependencies  
-- ✅ Start the backend (port 8000)
-- ✅ Start the frontend (port 3000)
-
-### 3. Open the App
-
-Visit **http://localhost:3000** and start using voice commands!
+Open **http://localhost:3000** 🎉
 
 ## 🎤 Voice Commands Examples
 
