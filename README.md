@@ -1,4 +1,4 @@
-# HireActions — Voice-Powered Recruiting
+# HireActions - Voice-Powered Recruiting
 
 A voice-first recruiting assistant that lets you manage candidates and jobs using natural language. Say "Find React developers with 3 years experience" and instantly get ranked results. No clicking, no forms—just speak.
 
@@ -32,22 +32,21 @@ Open **http://localhost:3000** and click the mic button.
 
 ## Why I Built This
 
-**The Problem**: Recruiting workflows are fragmented—clicking through tabs, filling forms, copy-pasting between tools. Voice is underutilized despite being our most natural interface.
+**The Problem**: Recruiting workflows are fragmented, clicking through tabs, filling forms, copy-pasting between tools. Voice is underutilized despite being our most natural interface.
 
 **The Insight**: Recruiting has a constrained action space (search, score, move, email) with high semantic complexity (job requirements, candidate qualifications). This is the perfect domain for voice + LLM: natural language handles the complexity while a finite set of actions keeps execution reliable.
 
 **Why Voice Shines Here**:
 1. **Speed**: "Find Python devs with AWS experience" is faster than clicking filters
 2. **Context**: Voice naturally handles compound requests ("...and move the top one to screening")
-3. **Hands-free**: Recruiters often multitask—reviewing resumes while updating pipelines
+3. **Hands-free**: Recruiters often multitask, reviewing resumes while updating pipelines
 
 **My Background in Voice Interfaces**: This builds on my prior work exploring voice + AI:
-- **Clueless** (2nd Place Wispr Flow Track @ HackMIT) — Voice-powered web navigation using knowledge graphs
-- **SolSpeak** (2nd Place @ HackNYU) — Phone-call DeFi trading via voice AI
-- **Tax Daddy** (3rd Place @ Hacklytics Georgia Tech) — Multi-agentic voice system for tax document Q&A and form filling
+- **Clueless** (2nd Place Wispr Flow Track @ HackMIT) - Voice-powered web navigation using knowledge graphs
+- **SolSpeak** (2nd Place @ HackNYU) - Phone-call DeFi trading via voice AI
+- **Tax Daddy** (3rd Place @ Hacklytics Georgia Tech) - Multi-agentic voice system for tax document Q&A and form filling
 
 Each project taught me something: Clueless showed me the power of constraining action spaces; SolSpeak proved voice works for high-stakes actions when trust is established; Tax Daddy demonstrated multi-agent orchestration for document understanding. HireActions synthesizes these learnings into a focused vertical.
----
 
 ## Prompt Engineering
 
