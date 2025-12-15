@@ -34,7 +34,7 @@ Open **http://localhost:3000** and click the mic button.
 
 ## Why I Built This
 
-Building on HireFlow: This project extends my previous work on HireFlow (Best Use of Terraform @ HoyaHacks), which automated resume screening and AI-powered phone interviews. That version focused on candidate-facing automation—AI calling candidates to screen them. HireActions flips the perspective: it's recruiter-facing, letting hiring managers control the entire pipeline through voice. Same domain, opposite user, complementary products.
+Building on HireFlow: This project extends my previous work on HireFlow (Best Use of Terraform @ HoyaHacks), which automated resume screening and AI-powered phone interviews. That version focused on candidate-facing automation, AI calling candidates to screen them. HireActions flips the perspective: it's recruiter-facing, letting hiring managers control the entire pipeline through voice. Same domain, opposite user, complementary products.
 HireFlow - https://devpost.com/software/hireflow
 
 **The Problem**: Recruiting workflows are fragmented, clicking through tabs, filling forms, copy-pasting between tools. Voice is underutilized despite being our most natural interface.
@@ -75,7 +75,7 @@ Parse the user's voice command into:
 
 **Key Design Decisions**:
 
-1. **Constrained output schema**: I force JSON output with a strict schema. This trades flexibility for reliability—the LLM can't hallucinate new actions.
+1. **Constrained output schema**: I force JSON output with a strict schema. This trades flexibility for reliabilitythe LLM can't hallucinate new actions.
 
 2. **Chained actions via `also_do`**: Compound commands like "Find devs and email the top one" are parsed into a primary action + chained actions. The executor resolves references ("top one" → actual candidate ID) after the primary action completes.
 
